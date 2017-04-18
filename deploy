@@ -5,10 +5,10 @@ export CI_WEB_RELEASE=$2
 
 mkdir "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}"
 rm -f "${CI_WEB_ROOT}current"
-ln -s "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}" "${STAGE_PATH}current"
+ln -s "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}" "${CI_WEB_ROOT}current"
 rsync -r ./config "${CI_WEB_ROOT}current"
 rsync -r ./vendor "${CI_WEB_ROOT}current"
 rsync -r --exclude-from=".rsync" ./web "${CI_WEB_ROOT}current"
 rm -rf "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/web/app/uploads"
-ln -s "${CI_WEB_ROOT}shared/web/app/uploads" "${STAGE_PATH}releases/${CI_WEB_RELEASE}/web/app/uploads"
-ln -s "${CI_WEB_ROOT}shared/.env" "${STAGE_PATH}releases/${CI_WEB_RELEASE}/.env"
+ln -s "${CI_WEB_ROOT}shared/web/app/uploads" "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/web/app/uploads"
+ln -s "${CI_WEB_ROOT}shared/.env" "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/.env"
