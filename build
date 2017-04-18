@@ -1,7 +1,11 @@
 #!/bin/bash
 
+export $CI_WEB_RELEASE=$1
+export $CI_THEME_NAME=$2
+
+echo "Building Release $CI_WEB_RELEASE"
 composer install
-cd web/app/themes/$1
+cd web/app/themes/$CI_THEME_NAME
 composer install
 npm install
 yarn run build:production
