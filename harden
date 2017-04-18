@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export CI_WEB_ROOT=$1
+export CI_WEB_RELEASE=$2
+
+chown -R :www-data "${CI_WEB_ROOT}current"
+chown -R :www-data "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}"
+find "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}" -type d -exec chmod 755 {} \;
+find "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}" -type f -exec chmod 644 {} \;
