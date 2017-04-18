@@ -13,4 +13,4 @@ rm -rf "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/web/app/uploads"
 ln -s "${CI_WEB_ROOT}shared/web/app/uploads" "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/web/app/uploads"
 ln -s "${CI_WEB_ROOT}shared/.env" "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/.env"
 
-echo "Branch $CI_COMMIT_REF_NAME $CI_COMMIT_SHA (at `git log --pretty=format:'%h' -n 1`) deployed as release ${CI_WEB_RELEASE} by `whoami`" >> "${CI_WEB_ROOT}/revisions.log"
+echo "Branch $CI_COMMIT_REF_NAME (at `git log --pretty=format:'%h' -n 1`) deployed as release ${CI_WEB_RELEASE} by `whoami`" >> "${CI_WEB_ROOT}/revisions.log"
