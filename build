@@ -1,0 +1,7 @@
+#!/bin/bash
+
+composer install
+cd web/app/themes/$1
+composer install
+npm install
+yarn run build:production
