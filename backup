@@ -11,5 +11,5 @@ chmod -R 775 "${CI_ROOT_DB}"
 
 pushd "${CI_WEB_ROOT}"
 wp db export ${CI_ROOT_DB}/$CI_WEB_RELEASE.sql
-ln -s ${CI_ROOT_DB}/$CI_WEB_RELEASE.sql ${CI_ROOT_DB}/current.sql 
+ln -s -f ${CI_ROOT_DB}/$CI_WEB_RELEASE.sql ${CI_ROOT_DB}/current.sql 
 popd
