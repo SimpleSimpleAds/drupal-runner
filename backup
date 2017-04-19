@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export CI_WEB_ROOT=$1
+export CI_WEB_RELEASE=$2
+
+mkdir -p ${CI_WEB_ROOT}/db
+
+pushd "${CI_WEB_ROOT}"
+wp db export db/$CI_WEB_RELEASE.sql
+ln -s db/$CI_WEB_RELEASE.sql db/current.sql 
+popd
