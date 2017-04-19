@@ -3,9 +3,13 @@
 export CI_WEB_ROOT=$1
 export CI_WEB_RELEASE=$2
 
-mkdir -p ${CI_WEB_ROOT}/db
+export CI_ROOT_DB=$CI_WEB_ROOT/db
+
+mkdir -p "${CI_ROOT_DB}"
+chown -R :www-data "${CI_ROOT_DB}"
+chmod -R 775 "${CI_ROOT_DB}"
 
 pushd "${CI_WEB_ROOT}"
-wp db export db/$CI_WEB_RELEASE.sql
-ln -s db/$CI_WEB_RELEASE.sql db/current.sql 
+wp db export ${CI_ROOT_DB}/$CI_WEB_RELEASE.sql
+ln -s ${CI_ROOT_DB}/$CI_WEB_RELEASE.sql ${CI_ROOT_DB}/current.sql 
 popd
