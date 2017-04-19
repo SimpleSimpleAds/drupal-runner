@@ -3,7 +3,7 @@
 export CI_WEB_ROOT=$1
 export CI_WEB_RELEASE=$2
 
-export CI_ROOT_DB=$CI_WEB_ROOT/db
+export CI_ROOT_DB=${CI_WEB_ROOT}db
 
 mkdir -p "${CI_ROOT_DB}"
 chown -R :www-data "${CI_ROOT_DB}"
