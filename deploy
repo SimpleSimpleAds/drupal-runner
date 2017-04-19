@@ -4,6 +4,7 @@ export CI_WEB_ROOT=$1
 export CI_WEB_RELEASE=$2
 
 export CI_SHARED_WEB=$CI_WEB_ROOT/shared/web
+export CI_RELEASE_WEB=${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/web
 
 mkdir "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}"
 touch "${CI_WEB_ROOT}current"
@@ -22,7 +23,7 @@ ln -s "${CI_WEB_ROOT}shared/.env" "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/.env
 
 for CI_STATIC_FILE in $(ls -d -1 $CI_SHARED_WEB/*)
 do
-  ln -s $CI_STATIC_FILE "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/$(basename "$CI_STATIC_FILE" )"
+  ln -s $CI_STATIC_FILE "${CI_RELEASE_WEB}/$(basename "$CI_STATIC_FILE")"
 done
 
 pushd "${CI_WEB_ROOT}current"
