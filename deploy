@@ -3,7 +3,7 @@
 export CI_WEB_ROOT=$1
 export CI_WEB_RELEASE=$2
 
-export CI_SHARED_WEB=$CI_WEB_ROOT/shared/web
+export CI_SHARED_WEB=${CI_WEB_ROOT}shared/web
 export CI_RELEASE_WEB=${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/web
 
 mkdir "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}"
