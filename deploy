@@ -29,3 +29,5 @@ wp plugin activate --all
 popd
 
 echo "Branch $CI_COMMIT_REF_NAME (at `git log --pretty=format:'%h' -n 1`) deployed as release ${CI_WEB_RELEASE} by `whoami`" >> "${CI_WEB_ROOT}/revisions.log"
+
+sudo service nginx reload
