@@ -9,7 +9,7 @@ export CI_RELEASE_WEB=${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/web
 mkdir "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}"
 touch "${CI_WEB_ROOT}current"
 rm -f "${CI_WEB_ROOT}current"
-ln -s "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}" "${CI_WEB_ROOT}current"
+ln -s --force "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}" "${CI_WEB_ROOT}current"
 
 cp wp-cli.yml "${CI_WEB_ROOT}current"
 rsync -r ./config "${CI_WEB_ROOT}current"
