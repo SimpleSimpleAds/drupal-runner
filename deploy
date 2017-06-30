@@ -6,6 +6,9 @@ export CI_WEB_RELEASE=$2
 mkdir "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}"
 ln -sfn "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}" "${CI_WEB_ROOT}current"
 
+rsync -r . "${CI_WEB_ROOT}current"
+
+rm -rf "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/sites"
 ln -s "${CI_WEB_ROOT}shared/sites" "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/sites"
 
 # TODO: Run some sort of database configuration execution
