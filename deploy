@@ -8,8 +8,7 @@ ln -sfn "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}" "${CI_WEB_ROOT}current"
 
 rsync -r . "${CI_WEB_ROOT}current"
 
-rm -rf "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/sites"
-ln -s "${CI_WEB_ROOT}shared/sites" "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/sites"
+ln -s "${CI_WEB_ROOT}shared/sites/default/settings.php" "${CI_WEB_ROOT}releases/${CI_WEB_RELEASE}/sites/default/settings.php"
 
 # Run database configuration execution for release
 pushd "${CI_WEB_ROOT}current"
